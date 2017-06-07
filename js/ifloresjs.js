@@ -20,7 +20,7 @@ function enviarDatos() {
     console.log(datosCliente);
     $.ajax({
         type: "POST",
-        url: "http://iflores.esy.es/beta0.1/clienteCreate.php",
+        url: "beta0.1/clienteCreate.php",
         dataType: 'json',
         async: false,
         data: datosCliente,
@@ -57,7 +57,7 @@ function loginEnvio(login) {
     console.log("aqui");
     $.ajax({
         type: "POST",
-        url: "http://iflores.esy.es/beta0.1/getCredentials.php",
+        url: "beta0.1/getCredentials.php",
         dataType: 'json',
         async: false,
         data: login,
@@ -91,7 +91,7 @@ function pasarPagar(i) {
     console.log(infoPedido);
     $.ajax({
         type: "POST",
-        url: "http://iflores.esy.es/beta0.1/pedidoCreate.php",
+        url: "beta0.1/pedidoCreate.php",
         dataType: 'json',
         async: false,
         data: infoPedido,
@@ -113,7 +113,7 @@ function loopGallery(test, index, item) {
     }
 }
 
-$.getJSON('http://iflores.esy.es/beta0.1/arreglosFloralesGet.php', function(data) {
+$.getJSON('beta0.1/arreglosFloralesGet.php', function(data) {
     $.each(data, function(index, item) {
         loopGallery(index <= 20, index, item);
     });
