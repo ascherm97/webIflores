@@ -8,6 +8,7 @@
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+	<link href="css/validetta/validetta.css" rel="stylesheet" type="text/css" media="screen">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script type="text/javascript" src="js/ifloresjs.js"></script>
@@ -20,53 +21,6 @@
 			$('.parallax').parallax();
 		});
 	</script>
-
-	<script type="text/javascript">
-		var mult = 9;
-		$.getJSON('arreglos.json', function(data) {
-			for (i = 0; i <= data.length; i++)
-
-			if(data[i].contenidoExtra==null){
-				$('#tarjetas').append(new Array(i).join('<div class="col s12 m6 l4"><div class="card"><div class="card-image waves-effect waves-block waves-light"><img class="sizeimg" src=' + data[i].url +
-					'></div><div class="card-content"><span class="card-title grey-text text-darken-4">' + data[i].nombre + '<i class="material-icons right">more_vert</i></span><p><a href="#">Comprar a tan solo: $' + data[i].precio +
-					'</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + data[i].nombre + '<i class="material-icons right">close</i></span><p>' +
-					data[i].descripcion + '</p></div></div></div>'))
-				}
-			else {
-				$('#tarjetas').append(new Array(i).join('<div class="col s12 m6 l4"><div class="card"><div class="card-image waves-effect waves-block waves-light"><img class="sizeimg" src=' + data[i].url +
-					'></div><div class="card-content"><span class="card-title grey-text text-darken-4">' + data[i].nombre + '<i class="material-icons right">more_vert</i></span><p><a href="#">Comprar a tan solo: $' + data[i].precio +
-					'</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + data[i].nombre + '<i class="material-icons right">close</i></span><p>' +
-					data[i].descripcion + "<br><br>Contenido Extra: "+ data[i].contenidoExtra +'</p></div></div></div>'))
-			}
-
-			if (data.length % mult == 0) {
-				var index = data.length / 9
-				$('#pagination').append(new Array(i).join('<li class="waves-effect"><a href="#!">' + index + 1 + '</a></li>'))
-			}
-
-			var $images = $('#tarjetas img');
-
-			$images.each(function(index) {
-				$(this).delay(index * 100).fadeIn();
-			});
-
-		});
-	</script>
-
-	<!-- <script type="text/javascript">
-		$.getJSON('arreglos.json', function(data) {
-			var index = 9
-			$('#pagination').append('')
-			for (i = 0; i <= data.length; i++) {
-				var mult = data.length / 9
-				if (mult>1){
-				for (i = 0; i <= mult; i++) {
-
-				}}
-				$('#pagination').append('')
-			}
-		});
-	</script> -->
 
 	<title>iFlores</title>
 	<link rel="shortcut icon" href="imgs/favicon.ico" />
@@ -90,34 +44,51 @@
 									<a href="collapsible.html"></a>
 								</li>
 							</ul>
-							<ul class="right">
+
+							<!--  Post-Login -->
+							<ul class="right hidden" id="nombreUsuario">
+								<li><a href="#logout" class="btn-large" id="logoutFunc"></a></li>
+								<div id="logout" class="modal modal-fixed-footer" style="height:30%">
+									<div class="modal-content colorBlack center">
+										<h4>Cerrar Sesión</h4>
+										<p>Si cierra sesión no podra realizar ninguna compra dentro de la página</p>
+									</div>
+									<div class="modal-footer">
+										<a class="modal-action modal-close waves-effect waves-green btn-flat" onclick="cerrarSesion()">Cerrar Sesion</a>
+									</div>
+								</div>
+							</ul>
+
+
+							<!-- Pre-Login -->
+							<ul class="right" id="btnTop">
 								<li><a class="modal-trigger" href="#modal1">Crear cuenta</a></li>
-								<div id="modal1" class="modal modal-fixed-footer" style="height:75%">
+								<div id="modal1" class="modal modal-fixed-footer" style="height:78%">
 									<div class="row">
 										<form class="col s12 row" style="color: #000000">
 											<h5 class="center ">Crear Cuenta</h5>
 
 											<div class="input-field col s4">
 												<i class="material-icons prefix">account_circle</i>
-												<input type="tel" class="validate" id="nombre" name="nombre">
+												<input type="text" class="validate" id="nombre" name="nombre" data-validetta="required">
 												<label for="nombre">Nombre</label>
 											</div>
 
 											<div class="input-field col s4">
 												<i class="material-icons prefix">account_circle</i>
-												<input type="tel" class="validate" id="apellidoPaterno" name="apellidoPaterno">
+												<input type="text" class="validate" data-validetta="required" id="apellidoPaterno" name="apellidoPaterno">
 												<label for="apellidoPaterno">Apellido Paterno</label>
 											</div>
 
 											<div class="input-field col s4">
 												<i class="material-icons prefix">account_circle</i>
-												<input type="tel" class="validate" id="apellidoMaterno" name="apellidoMaterno">
+												<input type="text" class="validate" data-validetta="required" id="apellidoMaterno" name="apellidoMaterno">
 												<label for="apellidoMaterno">Apellido Materno</label>
 											</div>
 
 											<div class="input-field col s11">
 												<i class="material-icons prefix">phone</i>
-												<input type="tel" class="validate" id="telefono" name="telefono">
+												<input type="number" class="validate" data-validetta="required" id="telefono" name="telefono">
 												<label for="telefono">Telefono</label>
 											</div>
 
@@ -125,37 +96,37 @@
 
 											<div class="input-field col s4">
 												<i class="material-icons prefix">address</i>
-												<input type="tel" class="validate" id="calle" name="calle">
+												<input type="text" class="validate" data-validetta="required" id="calle" name="calle">
 												<label for="calle">Calle</label>
 											</div>
 
 											<div class="input-field col s4">
 												<i class="material-icons prefix">address</i>
-												<input type="tel" class="validate" id="colonia" name="colonia">
+												<input type="text" class="validate" data-validetta="required" id="colonia" name="colonia">
 												<label for="colonia">Colonia</label>
 											</div>
 
 											<div class="input-field col s3">
 												<i class="material-icons prefix">address</i>
-												<input type="tel" class="validate" id="numeroExterior" name="numeroExterior">
+												<input type="number" class="validate" data-validetta="required" id="numeroExterior" name="numeroExterior">
 												<label for="numeroExterior">Numero Exterior</label>
 											</div>
 
 											<div class="input-field col s4">
 												<i class="material-icons prefix">address</i>
-												<input type="tel" class="validate" id="numeroInterior" name="numeroInterior">
+												<input type="number" class="validate" data-validetta="required" id="numeroInterior" name="numeroInterior">
 												<label for="numeroInterior">Numero Interior</label>
 											</div>
 
 											<div class="input-field col s4">
 												<i class="material-icons prefix">address</i>
-												<input type="tel" class="validate" id="ciudad" name="ciudad">
+												<input type="text" class="validate" data-validetta="required" id="ciudad" name="ciudad">
 												<label for="ciudad">Ciudad</label>
 											</div>
 
 											<div class="input-field col s3">
 												<i class="material-icons prefix">address</i>
-												<input type="tel" class="validate" id="codigoPostal" name="codigoPostal">
+												<input type="number" class="validate" data-validetta="required" id="codigoPostal" name="codigoPostal">
 												<label for="codigoPostal">CP</label>
 											</div>
 
@@ -163,48 +134,52 @@
 
 											<div class="input-field col s11">
 												<i class="material-icons prefix">mail</i>
-												<input type="tel" class="validate" id="correoout" name="correoout">
+												<input type="email" class="validate" data-validetta="required" id="correoout" name="correoout">
 												<label for="correoout">Mail</label>
 											</div>
 
 											<div class="input-field col s11">
 												<i class="material-icons prefix">account_circle</i>
-												<input type="tel" class="validate" id="contrasenaout" name="contrasenaout">
+												<input type="password" class="validate" data-validetta="required" id="contrasenaout" name="contrasenaout">
 												<label for="contrasenaout">Contraseña</label>
 											</div>
 
 										</form>
 									</div>
 									<div class="modal-footer">
-										<a href="#!" class="center-btn waves-effect waves-green btn-flat " type="submit" name="action">Enviar</a>
+										<button href="#!" class="center-btn waves-effect waves-green btn-flat" type="submit" name="enviarForma" id="enviarForma" onclick="enviarDatos()">Enviar</button>
 									</div>
 								</div>
 
 
-								<li><a class="modal-trigger btn-floating btn-large pulse" href="#modal2"><i class="material-icons">account_circle</i></a></li>
+								<li>
+									<a class="modal-trigger btn-floating btn-large pulse" href="#modal2">
+										<i class="material-icons">account_circle</i></a>
+								</li>
 								<div id="modal2" class="modal modal-fixed-footer" style="height:43%">
 									<div class="modal-content">
 										<div class="row">
 											<form class="col s12 row" style="color: #000000">
 
 												<h3 class="center">Iniciar Sesión</h3>
-												<div class="input-field col s12">
+
+												<div class="input-field col s11">
 													<i class="material-icons prefix">mail</i>
-													<input id="icon_prefix" type="tel" class="validate" id="correoin" name="correoin" class="validate">
-													<label for="icon_prefix">Correo</label>
+													<input type="email" class="validate" data-validetta="required" id="correoin" name="correoin">
+													<label for="correoin">Mail</label>
 												</div>
 
-												<div class="input-field col s12">
-													<i class="material-icons prefix">key</i>
-													<input id="icon_prefix" type="password" id="contrasenain" name="contrasenain" class="validate">
-													<label for="icon_prefix">Contraseña</label>
+												<div class="input-field col s11">
+													<i class="material-icons prefix">account_circle</i>
+													<input type="password" class="validate" data-validetta="required" id="contrasenain" name="contrasenain">
+													<label for="contrasenain">Contraseña</label>
 												</div>
 
 											</form>
 										</div>
 									</div>
 									<div class="modal-footer">
-										<button href="#!" class="center-btn waves-effect waves-green btn-flat " type="submit" name="action">Enviar</button>
+										<button href="#!" class="center-btn waves-effect waves-green btn-flat" type="submit" name="loginForma" id="loginForma" onclick="loginForma()">Enviar</button>
 									</div>
 
 								</div>
@@ -216,7 +191,6 @@
 			</div>
 
 			<!-- Imagenes principales -->
-
 			<div class="tema">
 				<h3 class="center">Arreglos y Ramos<br>Para todo tipo de evento u ocasión</h3>
 			</div>
@@ -242,20 +216,14 @@
 			<br>
 
 			<!-- Aqui van todas las imágenes del sitio -->
-
-			<div class="gallery row imagenes" id="tarjetas">
-
+			<!-- Despues de login -->
+			<div id="imagenesPost">
+				<div class="gallery row imagenes" id="galeriaPost">
+				</div>
+				<a class="next btn btn-default" onclick="masImgs()">Cargar Mas</a>
 			</div>
 
-			<!-- Este cambia las paginas de las imágenes -->
-
-			<ul class="pagination center-align" id="pagination">
-				<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-				<li class="active"><a href="#!">1</a></li>
-				<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-			</ul>
-
-			<!-- Este es el footer -->
+			<!-- Footer de la pagina -->
 
 			<footer class="page-footer">
 				<div class="container">

@@ -63,6 +63,10 @@
   font-size: 1.5em;
 }
 
+.colorBlack{
+  color: #000000;
+}
+
 .confirm{
   background-color: #FFE516;
 }
@@ -109,7 +113,7 @@
     right: 0;
     background-color: #000000;
     padding: 0;
-    max-height: 50%;
+    max-height: 80%;
     width: 50%;
     margin: auto;
     overflow-y: auto;
@@ -119,7 +123,7 @@
 
 .modal.modal-fixed-footer {
     padding: 0;
-    height: 25%;
+    height: 20%;
 }
 
 @media only screen and (max-width: 992px)
@@ -149,4 +153,28 @@ materialize.min.css:13
 
 .justificado{
   text-align: justify;
+}
+
+.hide{
+  display: none;
+}
+
+.minus_margin{
+  margin: -5% auto auto auto;
+  z-index: 1500000px;
+}
+
+.load_imgs{
+  text-align: center;
+  align-items: center;
+  margin: auto auto 3% auto;
+}
+
+.borderimg{
+   border: 3px solid black;
+}
+
+.hidden{
+  display: none;
+  visibility:inherit;
 }
