@@ -86,7 +86,7 @@ function pasarPagar(i) {
     fechaEntrega : $("#date").val(),
     fechaPedido : Date(),
     idArreglo : i,
-    idCliente: cliente.idCliente;
+    idCliente: cliente.idCliente
     }
     console.log(infoPedido);
     $.ajax({
