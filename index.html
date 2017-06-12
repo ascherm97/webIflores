@@ -59,86 +59,96 @@
                                             <form class="col s12 row" style="color: #000000">
                                                 <h5 class="center ">Crear Cuenta</h5>
 
-                                                <div class="input-field col s4">
+                                                <div class="input-field col s11 m6 center">
                                                     <i class="material-icons prefix">account_circle</i>
                                                     <input type="text" class="validate" id="nombre" name="nombre" data-validetta="required">
-                                                    <label for="nombre">Nombre</label>
+                                                    <label class="active" for="nombre">Nombre</label>
                                                 </div>
 
-                                                <div class="input-field col s4">
+                                                <div class="input-field col s11 m6 center">
                                                     <i class="material-icons prefix">account_circle</i>
                                                     <input type="text" class="validate" data-validetta="required" id="apellidoPaterno" name="apellidoPaterno">
-                                                    <label for="apellidoPaterno">Apellido Paterno</label>
+                                                    <label class="active" for="apellidoPaterno">Apellido Paterno</label>
                                                 </div>
 
-                                                <div class="input-field col s4">
+                                                <div class="input-field col s11 m6 center">
                                                     <i class="material-icons prefix">account_circle</i>
                                                     <input type="text" class="validate" data-validetta="required" id="apellidoMaterno" name="apellidoMaterno">
-                                                    <label for="apellidoMaterno">Apellido Materno</label>
+                                                    <label class="active" for="apellidoMaterno">Apellido Materno</label>
                                                 </div>
 
-                                                <div class="input-field col s11">
+                                                <div class="input-field col s11 m6 center">
                                                     <i class="material-icons prefix">phone</i>
                                                     <input type="number" class="validate" data-validetta="required" id="telefono" name="telefono">
-                                                    <label for="telefono">Telefono</label>
+                                                    <label class="active" for="telefono">Telefono</label>
                                                 </div>
 
                                                 <!--  Direccion-->
 
-                                                <div class="input-field col s4">
+                                                <div class="input-field col s11 m6 center">
                                                     <i class="material-icons prefix">address</i>
                                                     <input type="text" class="validate" data-validetta="required" id="calle" name="calle">
-                                                    <label for="calle">Calle</label>
+                                                    <label class="active" for="calle">Calle</label>
                                                 </div>
 
-                                                <div class="input-field col s4">
+                                                <div class="input-field col s11 m6 center">
                                                     <i class="material-icons prefix">address</i>
                                                     <input type="text" class="validate" data-validetta="required" id="colonia" name="colonia">
-                                                    <label for="colonia">Colonia</label>
+                                                    <label class="active" for="colonia">Colonia</label>
                                                 </div>
 
-                                                <div class="input-field col s3">
+                                                <div class="input-field col s6">
                                                     <i class="material-icons prefix">address</i>
                                                     <input type="number" class="validate" data-validetta="required" id="numeroExterior" name="numeroExterior">
-                                                    <label for="numeroExterior">Numero Exterior</label>
+                                                    <label class="active" for="numeroExterior">Numero Exterior</label>
                                                 </div>
 
-                                                <div class="input-field col s4">
+                                                <div class="input-field col s6">
                                                     <i class="material-icons prefix">address</i>
                                                     <input type="number" class="validate" data-validetta="required" id="numeroInterior" name="numeroInterior">
-                                                    <label for="numeroInterior">Numero Interior</label>
+                                                    <label class="active" for="numeroInterior">Numero Interior</label>
                                                 </div>
 
-                                                <div class="input-field col s4">
+                                                <div class="input-field col s6">
                                                     <i class="material-icons prefix">address</i>
                                                     <input type="text" class="validate" data-validetta="required" id="ciudad" name="ciudad">
-                                                    <label for="ciudad">Ciudad</label>
+                                                    <label class="active" for="ciudad">Ciudad</label>
                                                 </div>
 
-                                                <div class="input-field col s3">
+                                                <div class="input-field col s6">
                                                     <i class="material-icons prefix">address</i>
                                                     <input type="number" class="validate" data-validetta="required" id="codigoPostal" name="codigoPostal">
-                                                    <label for="codigoPostal">CP</label>
+                                                    <label class="active" for="codigoPostal">CP</label>
                                                 </div>
+
+                                                <div class="input-field col s6">
+                                                    <i class="material-icons prefix">address</i>
+                                                    <input type="textarea" class="validate" data-validetta="required" id="referencia" name="referencia">
+                                                    <label class="active" for="referencia">Refencias de tu domicilio:</label>
+                                                </div>
+
 
                                                 <!--  -->
 
-                                                <div class="input-field col s11">
+                                                <div class="input-field col s11 m6 center">
                                                     <i class="material-icons prefix">mail</i>
                                                     <input type="email" class="validate" data-validetta="required" id="correoout" name="correoout">
-                                                    <label for="correoout">Mail</label>
+                                                    <label class="active" for="correoout">Mail</label>
                                                 </div>
 
-                                                <div class="input-field col s11">
+                                                <div class="input-field col s11 m6 center">
                                                     <i class="material-icons prefix">account_circle</i>
                                                     <input type="password" class="validate" data-validetta="required" id="contrasenaout" name="contrasenaout">
-                                                    <label for="contrasenaout">Contraseña</label>
+                                                    <label class="active" for="contrasenaout">Contraseña</label>
                                                 </div>
 
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button href="#!" class="center-btn waves-effect waves-green btn-flat" type="submit" name="enviarForma" id="enviarForma" onclick="enviarDatos()">Enviar</button>
+                                            <button class="center-btn waves-effect waves-green btn-flat" type="submit" name="registrarClienteBtn" id="registrarClienteBtn">
+                                                Registrate
+                                                <i class="material-icons right">send</i>
+                                            </button>
                                         </div>
                                     </div>
 
@@ -170,7 +180,10 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button href="#!" class="center-btn waves-effect waves-green btn-flat" type="submit" name="loginForma" id="loginForma" onclick="loginForma()">Enviar</button>
+                                            <button class="center-btn waves-effect waves-green btn-flat" type="button" name="loginBtn" id="loginBtn">
+                                                Enviar
+                                                <i class="material-icons right">send</i>
+                                            </button>
                                         </div>
 
                                     </div>
